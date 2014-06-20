@@ -1,0 +1,16 @@
+{
+  "name": "webapp_ui",
+  "version": "0.0.0",
+  "authors": [
+    "teddarcuri <tarcuri88@gmail.com>"
+  ],
+  "description": "Web Application User Interface",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
