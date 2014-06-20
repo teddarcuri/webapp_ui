@@ -36,6 +36,13 @@
 
 		<!-- The Shelf -->
 		<div class="the-shelf">
+			<ul>
+				<li class="new-code-toggle">Add new code</li>
+				<li>Ruby</li>
+				<li>PHP</li>
+				<li>Javascript</li>
+				<li>Sass</li>
+			</ul>
 		</div>
 
 		<!-- The Trench -->
@@ -46,46 +53,82 @@
 		<div class="the-console">
 		</div>
 
+		<!-- Search Overlay -->
+		<div class="search-overlay">
+			<div class="results-info">
+				<h4>Showing Search Results for: </h4>
+				<h2>Hey There</h2>
+			</div>
+			<a class="close-overlay"><p>X</p></a> 
+		</div>
+
 	</div>
 
 	<!-- Overlays -->
 
-	<div class="search-overlay">
-
-		<div class="results-info">
-			<h4>Showing Results for: </h4>
-			<h2>Hey There</h2>
+	<div class="new-overlay overlay">
+		<div class="new-modal modal">
+			<a class="close-overlay"><p>X</p></a> 
 		</div>
-
-		<a class="close-overlay"><p>X</p></a> 
-
 	</div>
 
 	<!-- Scripts -->
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/jquery-ui/ui/minified/jquery-ui.min.js"></script>
 	<script>
-	$(function(){
+		$(function(){
 
-		// Resizable Console
-		$(".the-console").resizable(
-			{ handles: "w" }
-		);
+			//////////////////////////
+			// UI 
+			//////////////////////////
 
-		// Search
-		$(".search").hover(function(){
-			$(this).focus();
-		});
+			// Resizable Console
+			$(".the-console").resizable(
+				{ handles: "w" }
+			);
 
-		$(".search").keyup(function(){
-			$(".search-overlay").fadeIn();
-		});
+			//////////////////////////
+			// Search
+			//////////////////////////
 
-		$(".search").blur(function(){
-			$(".search-overlay").fadeOut();
-		});
+			// Focus on the search when hovered over
+			$(".search").hover(function(){
+				$(this).focus();
+			});
 
-	})
+			$(".search").keyup(function(){
+				// Show the Search Overlay 
+				$(".search-overlay").show();
+
+				// TODO: Ajax Call
+			});
+
+			$(".search").blur(function(){
+				// On blur, hide the search overlay
+				$(".search-overlay").fadeOut();
+			});
+
+			//////////////////////////
+			// Overlays
+			//////////////////////////
+
+			// Main function
+			function modal( target ) {
+				$("." + target + "-overlay").addClass("overlay-view").fadeIn();
+				$("." + target + "-modal").delay(300).addClass("modal-view");
+			}
+
+			// New Code CRUD
+			$(".new-code-toggle").click( function(){
+				modal("new"); 
+			});
+
+			// Close Overlay
+			$(".close-overlay").click(function(){
+				$(".modal").removeClass("modal-view");
+				$(".overlay").delay(300).fadeOut();
+			});
+		})
 	</script>
 </body>
 </html>

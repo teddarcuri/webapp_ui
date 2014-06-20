@@ -11,6 +11,9 @@
 // Forms and Fonts
 @import "fonts";
 
+body {
+	font-family: 'Proxima Nova', sans-serif;
+}
 
 // Top Tier Navigation Bar
 nav {
@@ -91,12 +94,12 @@ nav {
 	width: 100%; height: 100%;
 	padding-top: $nav-height;
 	position: absolute;
-	 display: -webkit-box;
-	  display: -moz-box;
-	  display: -webkit-flexbox;
-	  display: -ms-flexbox;
-	  display: -webkit-flex;
-	  display: flex;
+	display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flexbox;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
 }
 
 // The Shelf
@@ -105,8 +108,21 @@ nav {
 	height: 100%;
 	position: absolute;
 	top: 0; left: 0;
-	background: $primary-color;
+	padding-top: $nav-height;
+	@include linear-gradient(top, $primary-color, darken($primary-color, 20%));
 	@include boxShadow();
+
+	ul {
+		li {
+			color: #fff;
+			padding: 20px;
+			cursor: pointer;
+			&:hover {
+				background: rgba(0,0,0,0.1);
+				@include boxShadow(inset);
+			}
+		}
+	}
 }
 
 // The Trench
@@ -126,13 +142,57 @@ nav {
 
 // Overlays
 
+.overlay {
+	display: none;
+	width: 100%; height: 100%; 
+	background: rgba(0,0,0,0.9);
+	position: fixed; 
+	top: 0; left: 0;
+	padding: $nav-height + 20 20px;
+	color: #ddd !important;
+	z-index: $z-overlay;
+}
+
+.overlay-view {
+	display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flexbox;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .close-overlay {
 	position: absolute;
-	top: $nav-height + 10px; right: 10px;
+	top: 10px; right: 10px;
 	padding: 10px 12px;
 	font-size: 0.7em;
-	border: solid 2px #fff;
+	color: $primary-color;
+	border: solid 2px $primary-color;
 	border-radius: 5px;
+	cursor: pointer;
+	@include transition(all ease 0.1s);
+
+	&:hover {
+		background: $primary-color;
+		color: #fff;
+		border-radius: 200%;
+	}
+}
+
+.modal {
+	width: 50%; height: 300px;
+	background: #fff;
+	top: 1000px;
+	border-radius: 10px;
+	position: relative;
+	@include transition(all ease 1s);
+}
+
+.modal-view {
+	top: 0%;
 }
 
 .search-overlay {
@@ -143,6 +203,7 @@ nav {
 	top: 0; left: 0;
 	padding: $nav-height + 20 20px;
 	color: #ddd !important;
+	z-index: $z-overlay + 1;
 }
 
 .results-info {
