@@ -51,10 +51,23 @@
 
 		<!-- The Console -->
 		<div class="the-console">
+
+			<div class="window">
+				<div class="controls"></div>
+			</div>
+
+			<div class="window">
+				<div class="controls"></div>
+			</div>
+
+			<div class="window">
+				<div class="controls"></div>
+			</div>
+
 		</div>
 
 		<!-- Search Overlay -->
-		<div class="search-overlay">
+		<div class="search-overlay overlay">
 			<div class="results-info">
 				<h4>Showing Search Results for: </h4>
 				<h2>Hey There</h2>
@@ -78,13 +91,18 @@
 	<script>
 		$(function(){
 
+			// Wait for window load
+			$(window).bind("load", function() {
+				$(".overlay").hide();
+			});
+
 			//////////////////////////
 			// UI 
 			//////////////////////////
 
-			// Resizable Console
-			$(".the-console").resizable(
-				{ handles: "w" }
+			// Resizable Windows
+			$(".window").resizable(
+				{ handles: "se" }
 			);
 
 			//////////////////////////
@@ -114,7 +132,7 @@
 
 			// Main function
 			function modal( target ) {
-				$("." + target + "-overlay").addClass("overlay-view").fadeIn();
+				$("." + target + "-overlay").fadeIn();
 				$("." + target + "-modal").delay(300).addClass("modal-view");
 			}
 
