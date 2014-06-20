@@ -5,8 +5,9 @@
 }
 
 // Color Palette
-$primary-color: #333;
-$secondary-color: #6b849d;
+$primary-color: #48a8bf;
+$secondary-color: #1f1f1f;
+
 
 $red: #f25d44;
 $yellow: #eab049;
@@ -18,8 +19,11 @@ $nav-height: 70px;
 $shelf-width: 120px;
 $trench-width: 200px;
 
+$info-bar-height: 40px;
+
 // Z-Indexing
 $z-modal: 999;
 $z-nav: 888;
 $z-overlay: 777;
 $z-window: 666;
+

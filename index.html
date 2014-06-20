@@ -53,12 +53,23 @@
 		<div class="the-console">
 
 			<div class="window">
+
 				<div class="info-bar">
 					<div class="controls">
 						<div class="maximize"></div>
 						<div class="minimize"></div>
 						<div class="close"></div>
 					</div>
+				</div>
+
+				<div class="content">
+					<h1>Hey There</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab eum est enim alias accusamus dolorum molestiae at, velit reiciendis. Sit earum eum excepturi unde voluptatem accusamus optio voluptate aperiam dignissimos.</p>
+					<h1>Hey There</h1>
+					<h1>Hey There</h1>
+					<h1>Hey There</h1>
+					<h1>Hey There</h1>
+					<h1>Hey There</h1>
 				</div>
 			</div>
 
@@ -171,6 +182,11 @@
 			// Minimize Window
 			$(".minimize").click(function(){
 				$(this).closest(".window").removeClass("window-max");
+			});
+
+			//Close Window
+			$(".close").click(function(){
+				$(this).closest(".window").fadeOut();
 			});
 
 			//////////////////////////
