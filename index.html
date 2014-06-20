@@ -127,6 +127,11 @@
 
 	<div class="new-overlay overlay">
 		<div class="new-modal modal">
+			<form action="">
+				<input type="text">
+				<input type="text">
+				<input type="submit">
+			</form>
 			<a class="close-overlay"><p>X</p></a> 
 		</div>
 	</div>
@@ -151,6 +156,9 @@
 				{ handles: "se" }
 			);
 
+			// Draggable windows
+			$(".window").draggable({handle: ".info-bar", stack: ".window"});
+
 			//////////////////////////
 			// Search
 			//////////////////////////
@@ -163,6 +171,10 @@
 			$(".search").keyup(function(){
 				// Show the Search Overlay 
 				$(".search-overlay").show();
+
+				var value = $(this).val();
+
+				$(".results-info h2").text(value);
 
 				// TODO: Ajax Call
 			});

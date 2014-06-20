@@ -134,7 +134,7 @@ nav form input.search:focus {
   background-size: 30px;
 }
 .toolbox-toggle:hover {
-  background: url(../img/toolbox-icon.svg) no-repeat center center #1f1f1f;
+  background: url(../img/toolbox-icon.svg) no-repeat center center #6b849d;
   background-size: 30px;
   box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.3);
 }
@@ -146,7 +146,7 @@ nav form input.search:focus {
   display: none;
   width: 100%;
   height: 300px;
-  background: #48a8bf;
+  background: #333333;
   position: absolute;
   top: 70px;
   right: 0;
@@ -171,10 +171,10 @@ nav form input.search:focus {
 .the-shelf {
   width: 120px;
   height: 100%;
-  background-color: #48a8bf;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #48a8bf), color-stop(100%, #2a6877));
-  background-image: -webkit-linear-gradient(top, #48a8bf, #2a6877);
-  background-image: linear-gradient(to bottom,#48a8bf, #2a6877);
+  background-color: #333333;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333333), color-stop(100%, black));
+  background-image: -webkit-linear-gradient(top, #333333, black);
+  background-image: linear-gradient(to bottom,#333333, black);
   box-shadow:  0px 0px 5px rgba(0, 0, 0, 0.5);
 }
 .the-shelf ul li {
@@ -190,7 +190,7 @@ nav form input.search:focus {
 .the-trench {
   width: 300px;
   height: 100%;
-  background: #1f1f1f;
+  background: #6b849d;
 }
 
 .the-console {
@@ -213,10 +213,10 @@ nav form input.search:focus {
   width: 100%;
   height: 40px;
   position: relative;
-  background-color: #48a8bf;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #48a8bf), color-stop(100%, #37899d));
-  background-image: -webkit-linear-gradient(top, #48a8bf, #37899d);
-  background-image: linear-gradient(to bottom,#48a8bf, #37899d);
+  background-color: #333333;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333333), color-stop(100%, #1a1a1a));
+  background-image: -webkit-linear-gradient(top, #333333, #1a1a1a);
+  background-image: linear-gradient(to bottom,#333333, #1a1a1a);
 }
 .window .info-bar .controls {
   width: auto;
@@ -230,7 +230,7 @@ nav form input.search:focus {
   width: auto;
   height: 50%;
   background: url(../img/maximize.svg) no-repeat center center;
-  border: solid 1px #30798a;
+  border: solid 1px #0d0d0d;
   background-size: 8px;
   margin: 0px 3px;
   border-radius: 200%;
@@ -248,7 +248,7 @@ nav form input.search:focus {
   width: auto;
   height: 50%;
   background: url(../img/minimize.svg) no-repeat center center;
-  border: solid 1px #30798a;
+  border: solid 1px #0d0d0d;
   background-size: 8px;
   margin: 0px 3px;
   border-radius: 200%;
@@ -266,7 +266,7 @@ nav form input.search:focus {
   width: auto;
   height: 50%;
   background: url(../img/close.svg) no-repeat center center;
-  border: solid 1px #30798a;
+  border: solid 1px #0d0d0d;
   background-size: 8px;
   margin: 0px 3px;
   border-radius: 200%;
@@ -306,8 +306,8 @@ nav form input.search:focus {
   right: 10px;
   padding: 10px 12px;
   font-size: 0.7em;
-  color: #48a8bf;
-  border: solid 2px #48a8bf;
+  color: #333333;
+  border: solid 2px #333333;
   border-radius: 200%;
   cursor: pointer;
   -webkit-transition: all ease 0.1s;
@@ -315,7 +315,7 @@ nav form input.search:focus {
   transition: all ease 0.1s;
 }
 .close-overlay:hover {
-  background: #48a8bf;
+  background: #333333;
   color: #fff;
 }
 
