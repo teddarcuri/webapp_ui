@@ -1,11 +1,19 @@
 // All Y'alls gettin' border boxed
 * {
 	box-sizing: border-box;
+	font-family: 'Proxima Nova', sans-serif;
 }
 
 // Color Palette
-$primary-color: #fff;
-$secondary-color: aqua;
+$primary-color: #48a8bf;
+
+$dark-color: #1f1f1f;
 
 // Structual settings
 $nav-height: 70px;
+$shelf-width: 120px;
+$trench-width: 200px;
+
+// Z-Indexing
+$z-modal: 999;
+$z-nav: 888;

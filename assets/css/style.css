@@ -1,1 +1,224 @@
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}*{box-sizing:border-box}nav{width:100%;height:70px;position:fixed;top:0;left:0;background:#fff;box-shadow:0px 0px 10px rgba(0,0,0,0.3)}.logo-main{height:100%;padding:0.75em}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Proxima Nova', sans-serif;
+}
+
+h1 {
+  font-size: 3em;
+  font-family: 'Proxima Nova', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+p {
+  font-family: 'Proxima Nova', sans-serif;
+}
+
+nav {
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  z-index: 888;
+  box-shadow:  0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+nav form {
+  height: 100%;
+  display: inline-block;
+  position: absolute;
+  right: 70px;
+  padding: 1em;
+}
+nav form input.search {
+  background: #eee;
+  border-radius: 5px;
+  outline: 0;
+  border: 0;
+  width: 150px;
+  padding: 10px;
+  position: relative;
+  font-size: 12px;
+  color: #888;
+  -webkit-transition: all ease 0.3s;
+  -moz-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+}
+nav form input.search:focus {
+  color: #333;
+  width: 350px;
+}
+
+.toolbox-container {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.toolbox-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 70px;
+  width: 70px;
+  background: url(../img/toolbox-icon.svg) no-repeat center center;
+  background-size: 30px;
+}
+.toolbox-toggle:hover {
+  box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.3);
+}
+.toolbox-toggle:hover + .toolbox {
+  display: block;
+}
+
+.toolbox {
+  display: none;
+  width: 100%;
+  height: 300px;
+  background: #48a8bf;
+  position: absolute;
+  top: 70px;
+  right: 0;
+}
+.toolbox:hover {
+  display: block;
+}
+
+.logo-main {
+  height: 100%;
+  padding: 0.75em;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.logo-main:hover {
+  box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.3);
+}
+
+.app-wrapper {
+  width: 100%;
+  height: 100%;
+  padding-top: 70px;
+  position: absolute;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flexbox;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.the-shelf {
+  width: 120px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #48a8bf;
+  box-shadow:  0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+.the-trench {
+  width: 300px;
+  margin-left: 120px;
+  height: 100%;
+  background: #1f1f1f;
+}
+
+.the-console {
+  height: 100%;
+  width: 70%;
+  background: #eee;
+}
+
+.close-overlay {
+  position: absolute;
+  top: 80px;
+  right: 10px;
+  padding: 10px 12px;
+  font-size: 0.7em;
+  border: solid 2px #fff;
+  border-radius: 5px;
+}
+
+.search-overlay {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 90px 20px;
+  color: #ddd !important;
+}
+
+.results-info {
+  border-bottom: solid 1px #fff;
+  padding: 10px 0px;
+}
+.results-info h2 {
+  font-size: 3em;
+  font-family: 'Proxima Nova', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+.results-info h4 {
+  font-family: 'Proxima Nova', sans-serif;
+  font-style: italic;
+}

@@ -4,15 +4,88 @@
 	<meta charset="UTF-8">
 	<title>Web App Ui</title>
 
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
+	<!-- Top Tier Navigation -->
 	<nav>
-		
-		<img src="assets/img/logo.svg" alt="" class="logo-main">
+		<!-- Main Logo -->
+		<a href="/">
+			<img src="assets/img/logo.svg" alt="" class="logo-main">
+		</a>
+
+		<!-- Search Bar -->
+		<form action="">
+			<input class="search" type="text" value="Quick Search">
+		</form>
+
+		<!-- Toolbox -->
+		<div class="toolbox-container">
+			<a href="" class="toolbox-toggle">
+			</a>
+			<div class="toolbox"></div>
+		</div>	
 
 	</nav>
-	
+
+	<!-- Application Wrapper | Where the magic happens -->
+	<div class="app-wrapper">
+
+		<!-- The Shelf -->
+		<div class="the-shelf">
+		</div>
+
+		<!-- The Trench -->
+		<div class="the-trench">
+		</div>
+
+		<!-- The Console -->
+		<div class="the-console">
+		</div>
+
+	</div>
+
+	<!-- Overlays -->
+
+	<div class="search-overlay">
+
+		<div class="results-info">
+			<h4>Showing Results for: </h4>
+			<h2>Hey There</h2>
+		</div>
+
+		<a class="close-overlay"><p>X</p></a> 
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+	<script>
+	$(function(){
+
+		// Resizable Console
+		$(".the-console").resizable(
+			{ handles: "w" }
+		);
+
+		// Search
+		$(".search").hover(function(){
+			$(this).focus();
+		});
+
+		$(".search").keyup(function(){
+			$(".search-overlay").fadeIn();
+		});
+
+		$(".search").blur(function(){
+			$(".search-overlay").fadeOut();
+		});
+
+	})
+	</script>
 </body>
 </html>
