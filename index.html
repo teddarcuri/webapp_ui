@@ -152,12 +152,26 @@
 			//////////////////////////
 
 			// Resizable Windows
-			$(".window").resizable(
-				{ handles: "se" }
-			);
+			$(".window").resizable({ 
+				handles: "se" 
+			});
 
 			// Draggable windows
-			$(".window").draggable({handle: ".info-bar", stack: ".window"});
+			$(".window").draggable({
+				handle: ".info-bar", 
+				stack: ".window",
+				containment: "parent",
+				scroll: true
+			});
+
+			// Maximize window
+			$(".maximize").click(function(){
+				$(this).closest(".window").addClass("window-max");
+			});
+			// Minimize Window
+			$(".minimize").click(function(){
+				$(this).closest(".window").removeClass("window-max");
+			});
 
 			//////////////////////////
 			// Search
