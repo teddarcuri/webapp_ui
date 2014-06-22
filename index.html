@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Web App Ui</title>
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+	<!-- Top Tier Navigation -->
+	<nav>
+		<!-- Main Logo -->
+		<a href="/">
+			<img src="assets/img/logo.svg" alt="" class="logo-main">
+		</a>
+
+		<!-- Search Bar -->
+		<form action="">
+			<input class="search" type="text" value="Quick Search">
+		</form>
+
+		<!-- Toolbox -->
+		<div class="toolbox-container">
+			<a href="" class="toolbox-toggle">
+			</a>
+			<div class="toolbox">
+				<ul>
+					<li class="new-code-toggle">Add new code</li>
+				</ul>
+			</div>
+		</div>	
+
+	</nav>
+
+	<!-- Application Wrapper | Where the magic happens -->
+	<div class="app-wrapper">
+
+		<!-- The Shelf -->
+		<div class="the-shelf">
+			<ul>
+				<li>Ruby</li>
+				<li>PHP</li>
+				<li>Javascript</li>
+				<li>Sass</li>
+			</ul>
+		</div>
+
+		<!-- The Trench -->
+		<div class="the-trench">
+		</div>
+
+		<!-- The Console -->
+		<div class="the-console">
+
+			<div class="window">
+
+				<div class="info-bar">
+					<div class="controls">
+						<div class="maximize"></div>
+						<div class="minimize"></div>
+						<div class="close"></div>
+					</div>
+				</div>
+
+				<div class="content">
+				</div>
+			</div>
+
+			<div class="window">
+				<div class="info-bar">
+					<div class="controls">
+						<div class="maximize"></div>
+						<div class="minimize"></div>
+						<div class="close"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="window">
+				<div class="info-bar">
+					<div class="controls">
+						<div class="maximize"></div>
+						<div class="minimize"></div>
+						<div class="close"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="window">
+				<div class="info-bar">
+					<div class="controls">
+						<div class="maximize"></div>
+						<div class="minimize"></div>
+						<div class="close"></div>
+					</div>
+				</div>
+			</div>
+			<div class="window">
+				<div class="info-bar">
+					<div class="controls">
+						<div class="maximize"></div>
+						<div class="minimize"></div>
+						<div class="close"></div>
+					</div>
+				</div>
+			</div>
+			<div class="window">
+				<div class="info-bar">
+					<div class="controls">
+						<div class="maximize"></div>
+						<div class="minimize"></div>
+						<div class="close"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Search Overlay -->
+		<div class="search-overlay overlay">
+			<div class="results-info">
+				<h4>Showing Search Results for: </h4>
+				<h2>Hey There</h2>
+			</div>
+			<a class="close-overlay"><p>X</p></a> 
+		</div>
+
+	</div>
+
+	<!-- Overlays -->
+	<div class="new-overlay overlay">
+		<div class="new-modal modal">
+			<img src="assets/img/logo.svg" alt="">
+			<form action="">
+				<input type="text">
+				<input type="text">
+				<input type="submit">
+			</form>
+			<a class="close-overlay"><p>X</p></a> 
+		</div>
+	</div>
+
+	<!-- Scripts -->
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+	<script>
+		$(function(){
+
+			// Wait for window load
+			$(window).bind("load", function() {
+				$(".overlay").hide();
+			});
+
+			//////////////////////////
+			// UI 
+			//////////////////////////
+
+			// Resizable Windows
+			$(".window").resizable({ 
+				handles: "se" 
+			});
+
+			// Draggable windows
+			$(".window").draggable({
+				handle: ".info-bar", 
+				stack: ".window",
+				containment: "parent",
+				scroll: true
+			});
+
+			// Maximize window
+			$(".maximize").click(function(){
+				$(this).closest(".window").toggleClass("window-max");
+			});
+
+			// Minimize Window
+			$(".minimize").click(function(){
+				$(this).closest(".window").removeClass("window-max");
+			});
+
+			//Close Window
+			$(".close").click(function(){
+				$(this).closest(".window").fadeOut();
+			});
+
+			//////////////////////////
+			// Search
+			//////////////////////////
+
+			// Focus on the search when hovered over
+			$(".search").hover(function(){
+				$(this).focus();
+			});
+
+			$(".search").keyup(function(){
+				// Show the Search Overlay 
+				$(".search-overlay").show();
+
+				var value = $(this).val();
+
+				$(".results-info h2").text(value);
+
+				// TODO: Ajax Call
+			});
+
+			$(".search").blur(function(){
+				// On blur, hide the search overlay
+				$(".search-overlay").fadeOut();
+			});
+
+			//////////////////////////
+			// Overlays
+			//////////////////////////
+
+			// Main function
+			function modal( target ) {
+				$("." + target + "-overlay").fadeIn();
+				$("." + target + "-modal").delay(300).addClass("modal-view");
+			}
+
+			// New Code CRUD
+			$(".new-code-toggle").click( function(){
+				modal("new"); 
+			});
+
+			// Close Overlay
+			$(".close-overlay").click(function(){
+				$(".modal").removeClass("modal-view");
+				$(".overlay").delay(300).fadeOut();
+			});
+		})
+	</script>
+</body>
+</html>

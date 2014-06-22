@@ -1,0 +1,296 @@
+// Bourbon 
+@import "bourbon";
+
+// Browser styling reset
+@import "reset";
+
+// Configuration | Variables, Mixins, etc...
+@import "config";
+@import "mixins";
+
+// Forms and Fonts
+@import "fonts";
+
+body {
+    font-family: 'Proxima Nova', sans-serif;
+}
+
+// Top Tier Navigation Bar
+nav {
+    width: 100%; height: $nav-height;
+    position: fixed;
+    top: 0; left: 0;
+    background: #fff;
+    z-index: $z-nav;
+    @include boxShadow();
+
+    form {
+        height: 100%;
+        display: inline-block;
+        position: absolute; right: 70px;
+        padding: 1em;
+        input.search {
+            background: #eee;
+            border-radius: 5px;
+            outline: 0; border: 0;
+            width: 150px;
+            padding: 10px;
+            position: relative;
+            font-size: 12px;
+            color: #888;
+            @include transition(all ease 0.3s);
+            &:focus {
+                color: #333;
+                width: 350px;
+            }
+        }
+    }
+}
+
+// Main logo - upper left
+.logo-main {
+    height: 100%;
+    padding: 0.75em;
+    position: absolute;
+    left: 0; top: 0;
+    &:hover {
+        @include boxShadow(inset, 0px 0px 3px rgba(0,0,0,0.3));
+    }
+}
+
+.toolbox-container {
+    position: absolute; 
+    top: 0; right: 10px;
+    width: 100%; max-width: 300px;
+}
+
+.toolbox-toggle {
+    position: absolute;
+    top: 0; right: 0;
+    height: $nav-height; width: $nav-height;    
+    background: url(../img/toolbox-icon.svg) no-repeat center center;
+    background-size: 30px;
+    &:hover {
+        background: url(../img/toolbox-icon.svg) no-repeat center center $secondary-color;
+        background-size: 30px;
+        @include boxShadow(inset, 0px 0px 3px rgba(0,0,0,0.3));
+        & + .toolbox {
+            display: block;
+        }
+    }
+}
+
+.toolbox {
+    display: none;
+    width: 100%; height: 300px;
+    background: $primary-color;
+    position:  absolute;
+    top: $nav-height; right: 0;
+    &:hover {
+        display: block;
+    }
+}
+
+// Application Wrapper | Where the magic happens
+.app-wrapper {
+    width: 100%; height: 100%;
+    padding-top: $nav-height;
+    position: absolute;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flexbox;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+// The Shelf
+.the-shelf {
+    width: $shelf-width;
+    height: 100%;
+    @include linear-gradient(top, $primary-color, darken($primary-color, 20%));
+    @include boxShadow();
+
+    ul {
+        li {
+            color: #fff;
+            padding: 20px;
+            cursor: pointer;
+            &:hover {
+                background: rgba(0,0,0,0.1);
+                @include boxShadow(inset);
+            }
+        }
+    }
+}
+
+// The Trench
+.the-trench {
+    width: 300px;
+    height: 100%;
+    background: $secondary-color;
+    background-image: url(../img/logo-ghost.svg);
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: 220%;
+}
+
+// The Console
+.the-console {
+    flex-grow: 1;
+    height: 100%; 
+    background: #eee;
+    overflow: auto;
+    padding: 10px;
+    position: relative;
+}
+
+.window {
+    width: 33%; height: 300px;
+    background: #fff;
+    display: inline-block;
+    position: relative;
+    z-index: $z-window;
+    @include boxShadow();
+    @include transition(all ease 1s);
+
+    &.ui-draggable-dragging, &.ui-resizeable-resizing  {
+        box-shadow: 0px 0px 20px $primary-color;
+        @include transition(none);
+    }
+
+    .info-bar {
+        width: 100%; height: $info-bar-height;
+        position: absolute;
+        top: 0; left: 0;
+        cursor: move;
+        @include linear-gradient(top, $primary-color, darken($primary-color, 10%));
+        @include transition(all ease 1s);
+        .controls {
+            width: auto; height: 100%;
+            position: absolute;
+            top: 7px; right: 5px;
+
+            $controls: maximize, minimize, close;
+            @each $control in $controls {
+
+                    $color: "";
+
+                    @if $control == "close" {
+                        $color: $red;
+                    } @elseif $control == "minimize" {
+                        $color: $yellow;
+                    } @elseif $control == "maximize" {
+                        $color: $green;
+                    }
+
+                    .#{$control} {
+                    display: inline-block;
+                    width: auto; height: 50%;
+                    background: url(../img/#{$control}.svg) no-repeat center center;
+                    border: solid 2px darken($primary-color, 15%);
+                    background-size: 8px;
+                    margin: 0px 3px;
+                    border-radius: 200%;
+                    padding: 10px;
+                    cursor: pointer;
+                    &:hover {
+                        border: solid 2px darken($color, 25%);
+                        background: url(../img/#{$control}.svg) no-repeat center center $color;
+                        background-size: 8px;
+                        @include boxShadow(inset, 0px 0px 5px rgba(0,0,0,0.3));
+                    }
+                }
+
+            }
+
+        }
+    }
+
+    .content {
+        position: absolute;
+        margin-top: $info-bar-height;
+        width: 100%; height: 100%;
+        padding: 10px;
+        overflow: auto;
+    }
+}
+
+.window-max {
+    width: 100% !important; height: 100% !important;
+    position: absolute; 
+    top: 0 !important; left: 0 !important;
+    z-index: $z-window + 10;
+}
+
+// Overlays
+.overlay {
+    width: 100%; height: 100%; 
+    background: rgba(255,255,255,0.95);
+    position: fixed; 
+    top: 0; left: 0;
+    padding: $nav-height + 20 20px;
+    color: #333 !important;
+    z-index: $z-overlay;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flexbox;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-overlay {
+    position: absolute;
+    top: 10px; right: 10px;
+    padding: 10px 12px;
+    font-size: 0.7em;
+    color: $primary-color;
+    border: solid 2px $primary-color;
+    border-radius: 200%;
+    cursor: pointer;
+    @include transition(all ease 0.1s);
+
+    &:hover {
+        background: $primary-color;
+        color: #fff;
+    }
+}
+
+.modal {
+    width: 50%; height: 300px;
+    background: #fff;
+    top: 1000%;
+    border-radius: 10px;
+    position: relative;
+    padding: 30px;
+    @include transition(all ease 1s);
+}
+
+.modal-view {
+    top: 0%;
+}
+
+.search-overlay {
+    display: block;
+    z-index: $z-overlay + 1;
+}
+
+.results-info {
+    border-bottom: solid 2px $secondary-color;
+    padding: 10px 0px;
+    h2 {
+        color: #333;
+        font-size: 7em;
+        font-family: 'Proxima Nova', sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    h4 {
+        font-family: 'Proxima Nova', sans-serif;
+        font-style: italic;
+    }
+}
