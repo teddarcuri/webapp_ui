@@ -92,7 +92,7 @@ nav {
 
 .logo-main {
   height: 100%;
-  padding: 0.75em;
+  padding: 1.25em;
   position: absolute;
   left: 0;
   top: 0; }
@@ -115,7 +115,7 @@ nav {
   background: url(../img/toolbox-icon.svg) no-repeat center center;
   background-size: 30px; }
   .toolbox-toggle:hover {
-    background: url(../img/toolbox-icon.svg) no-repeat center center #1f1f1f;
+    background: url(../img/toolbox-icon.svg) no-repeat center center #5d86a0;
     background-size: 30px;
     box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.3); }
     .toolbox-toggle:hover + .toolbox {
@@ -125,7 +125,7 @@ nav {
   display: none;
   width: 100%;
   height: 300px;
-  background: #48a8bf;
+  background: #333333;
   position: absolute;
   top: 70px;
   right: 0; }
@@ -147,15 +147,16 @@ nav {
 .the-shelf {
   width: 120px;
   height: 100%;
-  background-color: #48a8bf;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #48a8bf), color-stop(100%, #2a6877));
-  background-image: -webkit-linear-gradient(top, #48a8bf, #2a6877);
-  background-image: linear-gradient(to bottom,#48a8bf, #2a6877);
+  background-color: #333333;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333333), color-stop(100%, black));
+  background-image: -webkit-linear-gradient(top, #333333, black);
+  background-image: linear-gradient(to bottom,#333333, black);
   box-shadow:  0px 0px 5px rgba(0, 0, 0, 0.5); }
   .the-shelf ul li {
     color: #fff;
     padding: 20px;
-    cursor: pointer; }
+    cursor: pointer;
+    border-bottom: solid 1px #1a1a1a; }
     .the-shelf ul li:hover {
       background: rgba(0, 0, 0, 0.1);
       box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.5); }
@@ -163,11 +164,7 @@ nav {
 .the-trench {
   width: 300px;
   height: 100%;
-  background: #1f1f1f;
-  background-image: url(../img/logo-ghost.svg);
-  background-repeat: no-repeat;
-  background-position: bottom center;
-  background-size: 220%; }
+  background: #5d86a0; }
 
 .the-console {
   flex-grow: 1;
@@ -188,8 +185,8 @@ nav {
   -webkit-transition: all ease 1s;
   -moz-transition: all ease 1s;
   transition: all ease 1s; }
-  .window.ui-draggable-dragging, .window.ui-resizeable-resizing {
-    box-shadow: 0px 0px 20px #48a8bf;
+  .window.ui-draggable-dragging, .window.ui-resizable-resizing {
+    box-shadow: 0px 0px 20px #333333;
     -webkit-transition: none;
     -moz-transition: none;
     transition: none; }
@@ -200,10 +197,10 @@ nav {
     top: 0;
     left: 0;
     cursor: move;
-    background-color: #48a8bf;
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #48a8bf), color-stop(100%, #37899d));
-    background-image: -webkit-linear-gradient(top, #48a8bf, #37899d);
-    background-image: linear-gradient(to bottom,#48a8bf, #37899d);
+    background-color: #333333;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333333), color-stop(100%, #1a1a1a));
+    background-image: -webkit-linear-gradient(top, #333333, #1a1a1a);
+    background-image: linear-gradient(to bottom,#333333, #1a1a1a);
     -webkit-transition: all ease 1s;
     -moz-transition: all ease 1s;
     transition: all ease 1s; }
@@ -218,7 +215,7 @@ nav {
         width: auto;
         height: 50%;
         background: url(../img/maximize.svg) no-repeat center center;
-        border: solid 2px #30798a;
+        border: solid 2px #0d0d0d;
         background-size: 8px;
         margin: 0px 3px;
         border-radius: 200%;
@@ -234,7 +231,7 @@ nav {
         width: auto;
         height: 50%;
         background: url(../img/minimize.svg) no-repeat center center;
-        border: solid 2px #30798a;
+        border: solid 2px #0d0d0d;
         background-size: 8px;
         margin: 0px 3px;
         border-radius: 200%;
@@ -250,7 +247,7 @@ nav {
         width: auto;
         height: 50%;
         background: url(../img/close.svg) no-repeat center center;
-        border: solid 2px #30798a;
+        border: solid 2px #0d0d0d;
         background-size: 8px;
         margin: 0px 3px;
         border-radius: 200%;
@@ -280,7 +277,7 @@ nav {
 .overlay {
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(0, 0, 0, 0.95);
   position: fixed;
   top: 0;
   left: 0;
@@ -295,6 +292,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center; }
+  .overlay.search-overlay {
+    background: white; }
 
 .close-overlay {
   position: absolute;
@@ -302,15 +301,15 @@ nav {
   right: 10px;
   padding: 10px 12px;
   font-size: 0.7em;
-  color: #48a8bf;
-  border: solid 2px #48a8bf;
+  color: #333333;
+  border: solid 2px #333333;
   border-radius: 200%;
   cursor: pointer;
   -webkit-transition: all ease 0.1s;
   -moz-transition: all ease 0.1s;
   transition: all ease 0.1s; }
   .close-overlay:hover {
-    background: #48a8bf;
+    background: #333333;
     color: #fff; }
 
 .modal {
@@ -333,11 +332,11 @@ nav {
   z-index: 778; }
 
 .results-info {
-  border-bottom: solid 2px #1f1f1f;
+  border-bottom: solid 2px #5d86a0;
   padding: 10px 0px; }
   .results-info h2 {
     color: #333;
-    font-size: 7em;
+    font-size: 5em;
     font-family: 'Proxima Nova', sans-serif;
     font-weight: 700;
     text-transform: uppercase; }

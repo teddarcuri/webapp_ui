@@ -50,7 +50,7 @@ nav {
 // Main logo - upper left
 .logo-main {
     height: 100%;
-    padding: 0.75em;
+    padding: 1.25em;
     position: absolute;
     left: 0; top: 0;
     &:hover {
@@ -116,6 +116,7 @@ nav {
             color: #fff;
             padding: 20px;
             cursor: pointer;
+            border-bottom: solid 1px darken($primary-color, 10%);
             &:hover {
                 background: rgba(0,0,0,0.1);
                 @include boxShadow(inset);
@@ -129,10 +130,6 @@ nav {
     width: 300px;
     height: 100%;
     background: $secondary-color;
-    background-image: url(../img/logo-ghost.svg);
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    background-size: 220%;
 }
 
 // The Console
@@ -154,7 +151,7 @@ nav {
     @include boxShadow();
     @include transition(all ease 1s);
 
-    &.ui-draggable-dragging, &.ui-resizeable-resizing  {
+    &.ui-draggable-dragging, &.ui-resizable-resizing  {
         box-shadow: 0px 0px 20px $primary-color;
         @include transition(none);
     }
@@ -226,7 +223,7 @@ nav {
 // Overlays
 .overlay {
     width: 100%; height: 100%; 
-    background: rgba(255,255,255,0.95);
+    background: rgba(0,0,0,0.95);
     position: fixed; 
     top: 0; left: 0;
     padding: $nav-height + 20 20px;
@@ -240,7 +237,11 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
+    &.search-overlay {
+        background: rgba(255,255,255,1);
+    }
 }
+
 
 .close-overlay {
     position: absolute;
@@ -283,7 +284,7 @@ nav {
     padding: 10px 0px;
     h2 {
         color: #333;
-        font-size: 7em;
+        font-size: 5em;
         font-family: 'Proxima Nova', sans-serif;
         font-weight: 700;
         text-transform: uppercase;
